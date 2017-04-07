@@ -14,7 +14,7 @@ gulp.task('default', function() {
 // tarefa de prefixaao dos componentes
 gulp.task('prefix-css', function() {
     return gulp.src('assets/css/style.css')
-        .pipe(prefixCSS('.prefix'))
+        .pipe(prefixCSS('.teste_002'))
         .pipe(gulp.dest('assets/css/'));
 });
 

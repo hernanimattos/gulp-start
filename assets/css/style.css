@@ -1,6 +1,24 @@
-.prefix .testando {
+.teste_002 .teste_002_link {
   color: red;
 }
-.prefix .testando-3 {
+.teste_002 .teste_002_link:hover {
+  color: #000;
+}
+.teste_002 .teste_002_border_radius_reset {
+  border-radius: none;
+}
+.teste_002 .teste_002 nav > a {
   color: red;
+}
+.teste_002 .teste_002 nav > a:hover {
+  color: #000;
+}
+.teste_002 .teste_002 > footer {
+  background-color: #ccc;
+}
+.teste_002 .teste_002 > footer > a {
+  color: red;
+}
+.teste_002 .teste_002 > footer > a:hover {
+  color: #000;
 }

@@ -1,8 +1,35 @@
-@cor: red;
+@link-cor-default: red;
+@link-cor-hover:#000;
+@color: #000;
+@background-default:#ccc;
 
-.testando{
-    color: @cor;
-}
-.testando-3{
-    color: @cor;
+
+.teste_002{
+    &_link{
+        color: @link-cor-default;
+            &:hover{
+            color:@link-cor-hover;
+        }
+    }
+    &_border_radius_reset{
+        border-radius: none;
+    }
+    nav{
+        >a{
+            color: @link-cor-default;
+            &:hover{
+                        color:@link-cor-hover;
+                    }
+        }
+    }
+    > footer{
+        background-color: @background-default;
+          >a{
+            color: @link-cor-default;
+            &:hover{
+                        color:@link-cor-hover;
+                    }
+        }
+
+    }
 }
