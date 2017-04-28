@@ -12,11 +12,24 @@ gulp.task('default', function() {
 });
 
 // tarefa de prefixaao dos componentes
-gulp.task('prefix-css', function() {
+gulp.task('css', function() {
     return gulp.src('assets/css/style.css')
-        .pipe(prefixCSS('.teste_002'))
-        .pipe(gulp.dest('assets/css/'));
+        .pipe(prefixCSS('.slider_009'))
+        .pipe(gulp.dest('assets/css/'))
+        .pipe(gulp.dest('../dist/assets/css/'));
 });
+gulp.task('js', function() {
+    return gulp.src('assets/js/main.js')
+        .pipe(gulp.dest('../dist/assets/js/'));
+});
+gulp.task('html', function() {
+    return gulp.src("*.html")
+        .pipe(gulp.dest('../dist'));
+});
+gulp.task('img', function() {
+    return gulp.src("assets/img/*")
+        .pipe(gulp.dest('../dist/assets/img'));
+})
 
 // ============ tasks from build app
 gulp.task('compress-js', function(cb) {
@@ -50,6 +63,6 @@ gulp.task('browser', function() {
     });
     gulp.watch("assets/less/*.less", ['less']).on('change', browserSync.reload, gulp.less);
     gulp.watch("assets/js/main.js").on('change', browserSync.reload);
-    gulp.watch("assets/css/style.css", ['prefix-css']).on('change', browserSync.reload);
+    gulp.watch("assets/css/style.css", ['css']).on('change', browserSync.reload);
     gulp.watch("*.html").on('change', browserSync.reload);
 });
