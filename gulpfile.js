@@ -1,3 +1,4 @@
+var fs = require('fs');
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
@@ -7,29 +8,41 @@ var less = require('gulp-less');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 
-gulp.task('default', function() {
-    // place code for your default task here
-});
 
+var path = 'passo_2_codificando/slider/Slider 009';
+
+gulp.task('component', function() {
+    gulp.run('less', 'html', 'img', 'js', 'css', function() {
+
+    });
+});
 // tarefa de prefixaao dos componentes
+
 gulp.task('css', function() {
-    return gulp.src('assets/css/style.css')
-        .pipe(prefixCSS('.slider_009'))
-        .pipe(gulp.dest('assets/css/'))
-        .pipe(gulp.dest('../dist/assets/css/'));
+    return gulp.src('assets/css/header_old_mod_003.css')
+        .pipe(prefixCSS('.header_old_mod_003'))
+        .pipe(gulp.dest(`./component/assets/css/`));
+
+    // .pipe(gulp.dest(`../../../../${path}/component/assets/css/`));
 });
 gulp.task('js', function() {
-    return gulp.src('assets/js/main.js')
-        .pipe(gulp.dest('../dist/assets/js/'));
+    return gulp.src('assets/js/header_old_mod_003.js')
+        .pipe(gulp.dest(`./component/assets/js/`));
+    // .pipe(gulp.dest(`../../../../${path}/component/assets/js/`));
 });
 gulp.task('html', function() {
+
     return gulp.src("*.html")
-        .pipe(gulp.dest('../dist'));
+        .pipe(gulp.dest(`./component`));
+    // .pipe(gulp.dest(`../../../../${path}/component/`));
 });
 gulp.task('img', function() {
     return gulp.src("assets/img/*")
-        .pipe(gulp.dest('../dist/assets/img'));
-})
+        .pipe(gulp.dest(`./component/assets/img`));
+
+    // .pipe(gulp.dest(`../../../../${path}/component/assets/img`));
+});
+
 
 // ============ tasks from build app
 gulp.task('compress-js', function(cb) {
@@ -53,6 +66,7 @@ gulp.task('less', function() {
     return gulp.src('assets/less/*.less')
         .pipe(less())
         .pipe(gulp.dest('assets/css/'));
+
 });
 
 gulp.task('browser', function() {
